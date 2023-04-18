@@ -164,9 +164,9 @@ section                    address   length (PC units)   length (bytes) (dec)
 .const                      0x1a00                0xb6           0x111  (273)
 .text                       0x1ab6               0xe80          0x15c0  (5568)
 .dinit                      0x2936                0xec           0x162  (354)
-.text                       0x2a22               0x28e           0x3d5  (981)
+.text                       0x2a22               0x290           0x3d8  (984)
 
-                 Total "program" memory used (bytes):         0x4008  (16392) 12%
+                 Total "program" memory used (bytes):         0x400b  (16395) 12%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x4000]
@@ -749,7 +749,7 @@ __CONFIG1
  .debug_abbrev    0x000a71        0x223 build/default/production/mcc_generated_files/uart1.o
  .debug_abbrev    0x000c94        0x158 build/default/production/mcc_generated_files/spi2.o
 
-.debug_line       0x000000       0x11a1
+.debug_line       0x000000       0x11a2
  *(.debug_line)
  .debug_line      0x000000        0x124 build/default/production/mcc_generated_files/clock.o
  .debug_line      0x000124        0x14c build/default/production/mcc_generated_files/traps.o
@@ -758,12 +758,12 @@ __CONFIG1
  .debug_line      0x0003ac        0x12b build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_line      0x0004d7        0x146 build/default/production/mcc_generated_files/pin_manager.o
  .debug_line      0x00061d        0x163 build/default/production/mcc_generated_files/tmr1.o
- .debug_line      0x000780        0x106 build/default/production/main.o
- .debug_line      0x000886        0x204 build/default/production/mcc_generated_files/i2c2.o
- .debug_line      0x000a8a        0x273 build/default/production/ADE.o
- .debug_line      0x000cfd        0x117 build/default/production/delay.o
- .debug_line      0x000e14        0x222 build/default/production/mcc_generated_files/uart1.o
- .debug_line      0x001036        0x16b build/default/production/mcc_generated_files/spi2.o
+ .debug_line      0x000780        0x107 build/default/production/main.o
+ .debug_line      0x000887        0x204 build/default/production/mcc_generated_files/i2c2.o
+ .debug_line      0x000a8b        0x273 build/default/production/ADE.o
+ .debug_line      0x000cfe        0x117 build/default/production/delay.o
+ .debug_line      0x000e15        0x222 build/default/production/mcc_generated_files/uart1.o
+ .debug_line      0x001037        0x16b build/default/production/mcc_generated_files/spi2.o
 
 .debug_frame      0x000000        0xab6
  *(.debug_frame)
@@ -2242,7 +2242,7 @@ __c30_signature
 .dinit            0x002936         0xec
  .dinit           0x002936         0xec data_init
 
-.text             0x002a22        0x28e
+.text             0x002a22        0x290
  .text            0x002a22         0xb8 build/default/production/mcc_generated_files/tmr1.o
                   0x002a22                  _TMR1_Initialize
                   0x002a46                  _TMR1_Period16BitSet
@@ -2271,5 +2271,5 @@ __c30_signature
                   0x002c7a                  _TRAPS_halt_on_error
  .text            0x002c92         0x14 build/default/production/mcc_generated_files/system.o
                   0x002c92                  _SYSTEM_Initialize
- .text            0x002ca6          0xa build/default/production/main.o
+ .text            0x002ca6          0xc build/default/production/main.o
                   0x002ca6                  _main
