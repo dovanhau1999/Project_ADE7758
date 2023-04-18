@@ -57,11 +57,12 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     Init_ADE_Run();
-    
+    DelayMs(2000);
     while (1)
     {
         // Add your application code
         ADE_test(1);
+        DelayMs(500);
     }
 
     return 1;

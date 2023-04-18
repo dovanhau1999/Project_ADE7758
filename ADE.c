@@ -504,7 +504,7 @@ void ADE_test(uint8_t Num)
             for (index =0; index < 3; index++ )
             {
                 CurrValue[index] = ADE_Read(6, Ia + index, 3);
-                printf("Gia tri dong dien pha %d la: %d \n\r", (index + 1), CurrValue[index]);
+                printf("Gia tri dong dien pha %d la: %li \n\r", (index + 1), CurrValue[index]);
             }
             break;
         }
@@ -513,7 +513,7 @@ void ADE_test(uint8_t Num)
             for ( index =0; index < 3; index++ )
             {
                 VoltValue[index] = ADE_Read(6, Va + index, 3);
-                printf("Gia tri dien ap pha %d la: %d \n\r", (index + 1), VoltValue[index]);
+                printf("Gia tri dien ap pha %d la: %li \n\r", (index + 1), VoltValue[index]);
             }
             break;
         }
@@ -524,20 +524,20 @@ void ADE_test(uint8_t Num)
             {
                 ValueTest = (int16_t)ADE_Read(6, Awatt + index, 2);
                 PowerValue[index] = (int32_t) ValueTest;
-                printf("Gia tri cong suat pha %d la: %d \n\r", (index + 1), PowerValue[index]);
+                printf("Gia tri cong suat pha %d la: %li \n\r", (index + 1), PowerValue[index]);
             }
             
             for ( index =0; index < 3; index++ )
             {
                 ValueTest = (int16_t)ADE_Read(6, Avar + index, 2);
                 ReActiveValue[index] = (int32_t) ValueTest;
-                printf("Gia tri cong suat phan khang pha %d la: %d \n\r", (index + 1), ReActiveValue[index]);
+                printf("Gia tri cong suat phan khang pha %d la: %li \n\r", (index + 1), ReActiveValue[index]);
             }
             
             for ( index =0; index < 3; index++ )
             {
                 ValueCos[index] = (uint64_t) sqrt(pow(PowerValue[index],2) + pow(ReActiveValue[index], 2));
-                printf("Gia tri Cos Phi pha %d la: %d \n\r", (index + 1), ValueCos[index]);
+                printf("Gia tri Cos Phi pha %d la: %li \n\r", (index + 1), ValueCos[index]);
             }
             
             break;
