@@ -46,6 +46,8 @@
   Section: Included Files
 */
 #include "mcc_generated_files/system.h"
+#include "Config.h"
+#include "delay.h"
 
 /*
                          Main application
@@ -58,6 +60,7 @@ int main(void)
     while (1)
     {
         // Add your application code
+        ADE_test(1);
     }
 
     return 1;

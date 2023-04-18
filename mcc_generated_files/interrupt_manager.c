@@ -52,8 +52,23 @@
 */
 void INTERRUPT_Initialize (void)
 {
+    //    MICI: MI2C2 - I2C2 Master Events
+    //    Priority: 1
+        IPC12bits.MI2C2IP = 1;
+    //    SICI: SI2C2 - I2C2 Slave Events
+    //    Priority: 1
+        IPC12bits.SI2C2IP = 1;
     //    TI: T1 - Timer1
     //    Priority: 1
         IPC0bits.T1IP = 1;
+    //    UERI: U1E - UART1 Error
+    //    Priority: 1
+        IPC16bits.U1ERIP = 1;
+    //    UTXI: U1TX - UART1 Transmitter
+    //    Priority: 1
+        IPC3bits.U1TXIP = 1;
+    //    URXI: U1RX - UART1 Receiver
+    //    Priority: 1
+        IPC2bits.U1RXIP = 1;
 
 }
