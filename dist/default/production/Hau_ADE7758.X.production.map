@@ -161,12 +161,12 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x1800          0x2400  (9216)
-.const                      0x1a00                0xbc           0x11a  (282)
-.text                       0x1abc               0xe80          0x15c0  (5568)
-.dinit                      0x293c                0xec           0x162  (354)
-.text                       0x2a28               0x298           0x3e4  (996)
+.const                      0x1a00                0xa6            0xf9  (249)
+.text                       0x1aa6               0xf32          0x16cb  (5835)
+.dinit                      0x29d8                0xec           0x162  (354)
+.text                       0x2ac4               0x29a           0x3e7  (999)
 
-                 Total "program" memory used (bytes):         0x4020  (16416) 12%
+                 Total "program" memory used (bytes):         0x410d  (16653) 12%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x4000]
@@ -292,120 +292,120 @@ External Symbols in Program Memory (by address):
                   0x00193c                  ___umoddi3
                   0x001944                  ___divdi3
                   0x0019a4                  ___moddi3
-                  0x001abc                  _Init_ADE_Run
-                  0x002170                  _ADE_test
-                  0x002302                  _UART1_Initialize
-                  0x002336                  _UART1_SetTxInterruptHandler
-                  0x002354                  _UART1_SetRxInterruptHandler
-                  0x002372                  _UART1_Read
-                  0x00239e                  _UART1_Write
-                  0x0023c8                  _UART1_IsRxReady
-                  0x0023de                  _UART1_IsTxReady
-                  0x002412                  _UART1_IsTxDone
-                  0x0024a2                  _UART1_ReadBuffer
-                  0x0024dc                  _UART1_WriteBuffer
-                  0x002516                  _UART1_TransferStatusGet
-                  0x00255a                  _UART1_Peek
-                  0x00257a                  _UART1_ReceiveBufferIsEmpty
-                  0x00258a                  _UART1_TransmitBufferIsFull
-                  0x00259a                  _UART1_StatusGet
-                  0x0025a2                  _UART1_TransmitBufferSizeGet
-                  0x0025d0                  _UART1_ReceiveBufferSizeGet
-                  0x0025fe                  _UART1_Enable
-                  0x002608                  _UART1_Disable
-                  0x002612                  _I2C2_Initialize
-                  0x002648                  _I2C2_ErrorCountGet
-                  0x002692                  _I2C2_MasterWrite
-                  0x0026c4                  _I2C2_MasterRead
-                  0x0026f6                  _I2C2_MasterTRBInsert
-                  0x00276e                  _I2C2_MasterReadTRBBuild
-                  0x00279e                  _I2C2_MasterWriteTRBBuild
-                  0x0027c2                  _I2C2_MasterQueueIsEmpty
-                  0x0027d8                  _I2C2_MasterQueueIsFull
-                  0x0027ee                  _SPI2_Initialize
-                  0x002800                  _SPI2_Exchange
-                  0x002830                  _SPI2_ExchangeBuffer
-                  0x0028fa                  _SPI2_Exchange8bit
-                  0x00290a                  _SPI2_Exchange8bitBuffer
-                  0x00291e                  _SPI2_TransferModeGet
-                  0x002934                  _SPI2_StatusGet
-                  0x002a28                  _TMR1_Initialize
-                  0x002a4c                  _TMR1_Period16BitSet
-                  0x002a5e                  _TMR1_Period16BitGet
-                  0x002a66                  _TMR1_Counter16BitSet
-                  0x002a78                  _TMR1_Counter16BitGet
-                  0x002a86                  _TMR1_SetInterruptHandler
-                  0x002a96                  _TMR1_Start
-                  0x002aa6                  _TMR1_Stop
-                  0x002ab0                  _TMR1_GetElapsedThenClear
-                  0x002ac8                  _TMR1_SoftwareCounterGet
-                  0x002ad4                  _TMR1_SoftwareCounterClear
-                  0x002ae0                  _PIN_MANAGER_Initialize
-                  0x002b88                  _DelayMs
-                  0x002bc2                  _Delay10us
-                  0x002bf0                  ___delay_us
-                  0x002bfc                  ___delay_ms
-                  0x002c08                  _INTERRUPT_Initialize
-                  0x002c4a                  _CLOCK_Initialize
-                  0x002c98                  _SYSTEM_Initialize
-                  0x002cac                  _main
+                  0x001aa6                  _Init_ADE_Run
+                  0x002284                  _ADE_test
+                  0x00239e                  _UART1_Initialize
+                  0x0023d2                  _UART1_SetTxInterruptHandler
+                  0x0023f0                  _UART1_SetRxInterruptHandler
+                  0x00240e                  _UART1_Read
+                  0x00243a                  _UART1_Write
+                  0x002464                  _UART1_IsRxReady
+                  0x00247a                  _UART1_IsTxReady
+                  0x0024ae                  _UART1_IsTxDone
+                  0x00253e                  _UART1_ReadBuffer
+                  0x002578                  _UART1_WriteBuffer
+                  0x0025b2                  _UART1_TransferStatusGet
+                  0x0025f6                  _UART1_Peek
+                  0x002616                  _UART1_ReceiveBufferIsEmpty
+                  0x002626                  _UART1_TransmitBufferIsFull
+                  0x002636                  _UART1_StatusGet
+                  0x00263e                  _UART1_TransmitBufferSizeGet
+                  0x00266c                  _UART1_ReceiveBufferSizeGet
+                  0x00269a                  _UART1_Enable
+                  0x0026a4                  _UART1_Disable
+                  0x0026ae                  _I2C2_Initialize
+                  0x0026e4                  _I2C2_ErrorCountGet
+                  0x00272e                  _I2C2_MasterWrite
+                  0x002760                  _I2C2_MasterRead
+                  0x002792                  _I2C2_MasterTRBInsert
+                  0x00280a                  _I2C2_MasterReadTRBBuild
+                  0x00283a                  _I2C2_MasterWriteTRBBuild
+                  0x00285e                  _I2C2_MasterQueueIsEmpty
+                  0x002874                  _I2C2_MasterQueueIsFull
+                  0x00288a                  _SPI2_Initialize
+                  0x00289c                  _SPI2_Exchange
+                  0x0028cc                  _SPI2_ExchangeBuffer
+                  0x002996                  _SPI2_Exchange8bit
+                  0x0029a6                  _SPI2_Exchange8bitBuffer
+                  0x0029ba                  _SPI2_TransferModeGet
+                  0x0029d0                  _SPI2_StatusGet
+                  0x002ac4                  _TMR1_Initialize
+                  0x002ae8                  _TMR1_Period16BitSet
+                  0x002afa                  _TMR1_Period16BitGet
+                  0x002b02                  _TMR1_Counter16BitSet
+                  0x002b14                  _TMR1_Counter16BitGet
+                  0x002b22                  _TMR1_SetInterruptHandler
+                  0x002b32                  _TMR1_Start
+                  0x002b42                  _TMR1_Stop
+                  0x002b4c                  _TMR1_GetElapsedThenClear
+                  0x002b64                  _TMR1_SoftwareCounterGet
+                  0x002b70                  _TMR1_SoftwareCounterClear
+                  0x002b7c                  _PIN_MANAGER_Initialize
+                  0x002c24                  _DelayMs
+                  0x002c5e                  _Delay10us
+                  0x002c8c                  ___delay_us
+                  0x002c98                  ___delay_ms
+                  0x002ca4                  _INTERRUPT_Initialize
+                  0x002ce6                  _CLOCK_Initialize
+                  0x002d34                  _main
+                  0x002d4a                  _SYSTEM_Initialize
 
 External Symbols in Program Memory (by name):
 
-                  0x002170                  _ADE_test
-                  0x002c4a                  _CLOCK_Initialize
-                  0x002bc2                  _Delay10us
-                  0x002b88                  _DelayMs
-                  0x002648                  _I2C2_ErrorCountGet
-                  0x002612                  _I2C2_Initialize
-                  0x0027c2                  _I2C2_MasterQueueIsEmpty
-                  0x0027d8                  _I2C2_MasterQueueIsFull
-                  0x0026c4                  _I2C2_MasterRead
-                  0x00276e                  _I2C2_MasterReadTRBBuild
-                  0x0026f6                  _I2C2_MasterTRBInsert
-                  0x002692                  _I2C2_MasterWrite
-                  0x00279e                  _I2C2_MasterWriteTRBBuild
-                  0x002c08                  _INTERRUPT_Initialize
-                  0x001abc                  _Init_ADE_Run
-                  0x002ae0                  _PIN_MANAGER_Initialize
-                  0x002800                  _SPI2_Exchange
-                  0x0028fa                  _SPI2_Exchange8bit
-                  0x00290a                  _SPI2_Exchange8bitBuffer
-                  0x002830                  _SPI2_ExchangeBuffer
-                  0x0027ee                  _SPI2_Initialize
-                  0x002934                  _SPI2_StatusGet
-                  0x00291e                  _SPI2_TransferModeGet
-                  0x002c98                  _SYSTEM_Initialize
-                  0x002a78                  _TMR1_Counter16BitGet
-                  0x002a66                  _TMR1_Counter16BitSet
-                  0x002ab0                  _TMR1_GetElapsedThenClear
-                  0x002a28                  _TMR1_Initialize
-                  0x002a5e                  _TMR1_Period16BitGet
-                  0x002a4c                  _TMR1_Period16BitSet
-                  0x002a86                  _TMR1_SetInterruptHandler
-                  0x002ad4                  _TMR1_SoftwareCounterClear
-                  0x002ac8                  _TMR1_SoftwareCounterGet
-                  0x002a96                  _TMR1_Start
-                  0x002aa6                  _TMR1_Stop
-                  0x002608                  _UART1_Disable
-                  0x0025fe                  _UART1_Enable
-                  0x002302                  _UART1_Initialize
-                  0x0023c8                  _UART1_IsRxReady
-                  0x002412                  _UART1_IsTxDone
-                  0x0023de                  _UART1_IsTxReady
-                  0x00255a                  _UART1_Peek
-                  0x002372                  _UART1_Read
-                  0x0024a2                  _UART1_ReadBuffer
-                  0x00257a                  _UART1_ReceiveBufferIsEmpty
-                  0x0025d0                  _UART1_ReceiveBufferSizeGet
-                  0x002354                  _UART1_SetRxInterruptHandler
-                  0x002336                  _UART1_SetTxInterruptHandler
-                  0x00259a                  _UART1_StatusGet
-                  0x002516                  _UART1_TransferStatusGet
-                  0x00258a                  _UART1_TransmitBufferIsFull
-                  0x0025a2                  _UART1_TransmitBufferSizeGet
-                  0x00239e                  _UART1_Write
-                  0x0024dc                  _UART1_WriteBuffer
+                  0x002284                  _ADE_test
+                  0x002ce6                  _CLOCK_Initialize
+                  0x002c5e                  _Delay10us
+                  0x002c24                  _DelayMs
+                  0x0026e4                  _I2C2_ErrorCountGet
+                  0x0026ae                  _I2C2_Initialize
+                  0x00285e                  _I2C2_MasterQueueIsEmpty
+                  0x002874                  _I2C2_MasterQueueIsFull
+                  0x002760                  _I2C2_MasterRead
+                  0x00280a                  _I2C2_MasterReadTRBBuild
+                  0x002792                  _I2C2_MasterTRBInsert
+                  0x00272e                  _I2C2_MasterWrite
+                  0x00283a                  _I2C2_MasterWriteTRBBuild
+                  0x002ca4                  _INTERRUPT_Initialize
+                  0x001aa6                  _Init_ADE_Run
+                  0x002b7c                  _PIN_MANAGER_Initialize
+                  0x00289c                  _SPI2_Exchange
+                  0x002996                  _SPI2_Exchange8bit
+                  0x0029a6                  _SPI2_Exchange8bitBuffer
+                  0x0028cc                  _SPI2_ExchangeBuffer
+                  0x00288a                  _SPI2_Initialize
+                  0x0029d0                  _SPI2_StatusGet
+                  0x0029ba                  _SPI2_TransferModeGet
+                  0x002d4a                  _SYSTEM_Initialize
+                  0x002b14                  _TMR1_Counter16BitGet
+                  0x002b02                  _TMR1_Counter16BitSet
+                  0x002b4c                  _TMR1_GetElapsedThenClear
+                  0x002ac4                  _TMR1_Initialize
+                  0x002afa                  _TMR1_Period16BitGet
+                  0x002ae8                  _TMR1_Period16BitSet
+                  0x002b22                  _TMR1_SetInterruptHandler
+                  0x002b70                  _TMR1_SoftwareCounterClear
+                  0x002b64                  _TMR1_SoftwareCounterGet
+                  0x002b32                  _TMR1_Start
+                  0x002b42                  _TMR1_Stop
+                  0x0026a4                  _UART1_Disable
+                  0x00269a                  _UART1_Enable
+                  0x00239e                  _UART1_Initialize
+                  0x002464                  _UART1_IsRxReady
+                  0x0024ae                  _UART1_IsTxDone
+                  0x00247a                  _UART1_IsTxReady
+                  0x0025f6                  _UART1_Peek
+                  0x00240e                  _UART1_Read
+                  0x00253e                  _UART1_ReadBuffer
+                  0x002616                  _UART1_ReceiveBufferIsEmpty
+                  0x00266c                  _UART1_ReceiveBufferSizeGet
+                  0x0023f0                  _UART1_SetRxInterruptHandler
+                  0x0023d2                  _UART1_SetTxInterruptHandler
+                  0x002636                  _UART1_StatusGet
+                  0x0025b2                  _UART1_TransferStatusGet
+                  0x002626                  _UART1_TransmitBufferIsFull
+                  0x00263e                  _UART1_TransmitBufferSizeGet
+                  0x00243a                  _UART1_Write
+                  0x002578                  _UART1_WriteBuffer
                   0x000326                  __AddressError
                   0x000d22                  __Atexit
                   0x000bea                  __Closreg
@@ -427,8 +427,8 @@ External Symbols in Program Memory (by name):
                   0x000ece                  ___Printf_cdnopuxX
                   0x000ed8                  ___Putfld_cdnopuxX
                   0x00076a                  ___addsf3
-                  0x002bfc                  ___delay_ms
-                  0x002bf0                  ___delay_us
+                  0x002c98                  ___delay_ms
+                  0x002c8c                  ___delay_us
                   0x001944                  ___divdi3
                   0x0017ac                  ___divsi3
                   0x000d58                  ___ePrintf_cdnopuxX
@@ -465,7 +465,7 @@ External Symbols in Program Memory (by name):
                   0x000bfc                  _fclose
                   0x0010fc                  _free
                   0x000a8e                  _fwrite
-                  0x002cac                  _main
+                  0x002d34                  _main
                   0x0011c6                  _malloc
                   0x000b36                  _memchr
                   0x000b4a                  _memcpy
@@ -717,7 +717,7 @@ __CONFIG1
  *(.comment)
  .comment         0x000000         0x5e c:/program files/microchip/xc16/v1.70/bin/bin/../../lib\liblega-c-elf.a(xfiles.XX_eo)
 
-.debug_info       0x000000       0x5efa
+.debug_info       0x000000       0x6020
  *(.debug_info)
  .debug_info      0x000000        0x27d build/default/production/mcc_generated_files/clock.o
  .debug_info      0x00027d        0x382 build/default/production/mcc_generated_files/traps.o
@@ -729,11 +729,11 @@ __CONFIG1
  .debug_info      0x00352b       0x1076 build/default/production/mcc_generated_files/uart1.o
  .debug_info      0x0045a1        0x908 build/default/production/mcc_generated_files/spi2.o
  .debug_info      0x004ea9        0x2e6 build/default/production/main.o
- .debug_info      0x00518f        0x9b5 build/default/production/ADE.o
- .debug_info      0x005b44        0x3b6 build/default/production/delay.o
+ .debug_info      0x00518f        0xadb build/default/production/ADE.o
+ .debug_info      0x005c6a        0x3b6 build/default/production/delay.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0xdec
+.debug_abbrev     0x000000        0xe01
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0x59 build/default/production/mcc_generated_files/clock.o
  .debug_abbrev    0x000059        0x10d build/default/production/mcc_generated_files/traps.o
@@ -746,10 +746,10 @@ __CONFIG1
  .debug_abbrev    0x000744        0x223 build/default/production/mcc_generated_files/uart1.o
  .debug_abbrev    0x000967        0x158 build/default/production/mcc_generated_files/spi2.o
  .debug_abbrev    0x000abf         0xb6 build/default/production/main.o
- .debug_abbrev    0x000b75        0x1a3 build/default/production/ADE.o
- .debug_abbrev    0x000d18         0xd4 build/default/production/delay.o
+ .debug_abbrev    0x000b75        0x1b8 build/default/production/ADE.o
+ .debug_abbrev    0x000d2d         0xd4 build/default/production/delay.o
 
-.debug_line       0x000000       0x11a4
+.debug_line       0x000000       0x11ca
  *(.debug_line)
  .debug_line      0x000000        0x124 build/default/production/mcc_generated_files/clock.o
  .debug_line      0x000124        0x14c build/default/production/mcc_generated_files/traps.o
@@ -762,10 +762,10 @@ __CONFIG1
  .debug_line      0x000984        0x222 build/default/production/mcc_generated_files/uart1.o
  .debug_line      0x000ba6        0x16b build/default/production/mcc_generated_files/spi2.o
  .debug_line      0x000d11        0x109 build/default/production/main.o
- .debug_line      0x000e1a        0x273 build/default/production/ADE.o
- .debug_line      0x00108d        0x117 build/default/production/delay.o
+ .debug_line      0x000e1a        0x299 build/default/production/ADE.o
+ .debug_line      0x0010b3        0x117 build/default/production/delay.o
 
-.debug_frame      0x000000        0xab6
+.debug_frame      0x000000        0xafa
  *(.debug_frame)
  .debug_frame     0x000000         0x2e build/default/production/mcc_generated_files/clock.o
  .debug_frame     0x00002e        0x140 build/default/production/mcc_generated_files/traps.o
@@ -777,10 +777,10 @@ __CONFIG1
  .debug_frame     0x0004f2        0x324 build/default/production/mcc_generated_files/uart1.o
  .debug_frame     0x000816         0xca build/default/production/mcc_generated_files/spi2.o
  .debug_frame     0x0008e0         0x2e build/default/production/main.o
- .debug_frame     0x00090e        0x12c build/default/production/ADE.o
- .debug_frame     0x000a3a         0x7c build/default/production/delay.o
+ .debug_frame     0x00090e        0x170 build/default/production/ADE.o
+ .debug_frame     0x000a7e         0x7c build/default/production/delay.o
 
-.debug_str        0x000000        0x26a
+.debug_str        0x000000        0x274
  *(.debug_str)
  .debug_str       0x000000          0xc build/default/production/mcc_generated_files/traps.o
  .debug_str       0x00000c          0xc build/default/production/mcc_generated_files/system.o
@@ -791,8 +791,8 @@ __CONFIG1
  .debug_str       0x00010c         0xb3 build/default/production/mcc_generated_files/uart1.o
  .debug_str       0x0001bf         0x5a build/default/production/mcc_generated_files/spi2.o
  .debug_str       0x000219          0xc build/default/production/main.o
- .debug_str       0x000225         0x39 build/default/production/ADE.o
- .debug_str       0x00025e          0xc build/default/production/delay.o
+ .debug_str       0x000225         0x43 build/default/production/ADE.o
+ .debug_str       0x000268          0xc build/default/production/delay.o
 
 .debug_loc
  *(.debug_loc)
@@ -2191,85 +2191,85 @@ __c30_signature
  .ivt._U1ErrInterrupt
                   0x000096          0x2 build/default/production/mcc_generated_files/uart1.o
 
-.const              0x9a00         0xbc load address 0x001a00  
- .const             0x9a00         0xbc build/default/production/ADE.o
+.const              0x9a00         0xa6 load address 0x001a00  
+ .const             0x9a00         0xa6 build/default/production/ADE.o
 
-.text             0x001abc        0xe80
- .text            0x001abc        0x846 build/default/production/ADE.o
-                  0x001abc                  _Init_ADE_Run
-                  0x002170                  _ADE_test
- .text            0x002302        0x310 build/default/production/mcc_generated_files/uart1.o
-                  0x002302                  _UART1_Initialize
-                  0x002336                  _UART1_SetTxInterruptHandler
-                  0x00234e                  _UART1_Transmit_CallBack
-                  0x002354                  _UART1_SetRxInterruptHandler
-                  0x00236c                  _UART1_Receive_CallBack
-                  0x002372                  _UART1_Read
-                  0x00239e                  _UART1_Write
-                  0x0023c8                  _UART1_IsRxReady
-                  0x0023de                  _UART1_IsTxReady
-                  0x002412                  _UART1_IsTxDone
-                  0x0024a2                  _UART1_ReadBuffer
-                  0x0024dc                  _UART1_WriteBuffer
-                  0x002516                  _UART1_TransferStatusGet
-                  0x00255a                  _UART1_Peek
-                  0x00257a                  _UART1_ReceiveBufferIsEmpty
-                  0x00258a                  _UART1_TransmitBufferIsFull
-                  0x00259a                  _UART1_StatusGet
-                  0x0025a2                  _UART1_TransmitBufferSizeGet
-                  0x0025d0                  _UART1_ReceiveBufferSizeGet
-                  0x0025fe                  _UART1_Enable
-                  0x002608                  _UART1_Disable
- .text            0x002612        0x1dc build/default/production/mcc_generated_files/i2c2.o
-                  0x002612                  _I2C2_Initialize
-                  0x002648                  _I2C2_ErrorCountGet
-                  0x002692                  _I2C2_MasterWrite
-                  0x0026c4                  _I2C2_MasterRead
-                  0x0026f6                  _I2C2_MasterTRBInsert
-                  0x00276e                  _I2C2_MasterReadTRBBuild
-                  0x00279e                  _I2C2_MasterWriteTRBBuild
-                  0x0027c2                  _I2C2_MasterQueueIsEmpty
-                  0x0027d8                  _I2C2_MasterQueueIsFull
- .text            0x0027ee        0x14e build/default/production/mcc_generated_files/spi2.o
-                  0x0027ee                  _SPI2_Initialize
-                  0x002800                  _SPI2_Exchange
-                  0x002830                  _SPI2_ExchangeBuffer
-                  0x0028fa                  _SPI2_Exchange8bit
-                  0x00290a                  _SPI2_Exchange8bitBuffer
-                  0x00291e                  _SPI2_TransferModeGet
-                  0x002934                  _SPI2_StatusGet
+.text             0x001aa6        0xf32
+ .text            0x001aa6        0x8f8 build/default/production/ADE.o
+                  0x001aa6                  _Init_ADE_Run
+                  0x002284                  _ADE_test
+ .text            0x00239e        0x310 build/default/production/mcc_generated_files/uart1.o
+                  0x00239e                  _UART1_Initialize
+                  0x0023d2                  _UART1_SetTxInterruptHandler
+                  0x0023ea                  _UART1_Transmit_CallBack
+                  0x0023f0                  _UART1_SetRxInterruptHandler
+                  0x002408                  _UART1_Receive_CallBack
+                  0x00240e                  _UART1_Read
+                  0x00243a                  _UART1_Write
+                  0x002464                  _UART1_IsRxReady
+                  0x00247a                  _UART1_IsTxReady
+                  0x0024ae                  _UART1_IsTxDone
+                  0x00253e                  _UART1_ReadBuffer
+                  0x002578                  _UART1_WriteBuffer
+                  0x0025b2                  _UART1_TransferStatusGet
+                  0x0025f6                  _UART1_Peek
+                  0x002616                  _UART1_ReceiveBufferIsEmpty
+                  0x002626                  _UART1_TransmitBufferIsFull
+                  0x002636                  _UART1_StatusGet
+                  0x00263e                  _UART1_TransmitBufferSizeGet
+                  0x00266c                  _UART1_ReceiveBufferSizeGet
+                  0x00269a                  _UART1_Enable
+                  0x0026a4                  _UART1_Disable
+ .text            0x0026ae        0x1dc build/default/production/mcc_generated_files/i2c2.o
+                  0x0026ae                  _I2C2_Initialize
+                  0x0026e4                  _I2C2_ErrorCountGet
+                  0x00272e                  _I2C2_MasterWrite
+                  0x002760                  _I2C2_MasterRead
+                  0x002792                  _I2C2_MasterTRBInsert
+                  0x00280a                  _I2C2_MasterReadTRBBuild
+                  0x00283a                  _I2C2_MasterWriteTRBBuild
+                  0x00285e                  _I2C2_MasterQueueIsEmpty
+                  0x002874                  _I2C2_MasterQueueIsFull
+ .text            0x00288a        0x14e build/default/production/mcc_generated_files/spi2.o
+                  0x00288a                  _SPI2_Initialize
+                  0x00289c                  _SPI2_Exchange
+                  0x0028cc                  _SPI2_ExchangeBuffer
+                  0x002996                  _SPI2_Exchange8bit
+                  0x0029a6                  _SPI2_Exchange8bitBuffer
+                  0x0029ba                  _SPI2_TransferModeGet
+                  0x0029d0                  _SPI2_StatusGet
 
-.dinit            0x00293c         0xec
- .dinit           0x00293c         0xec data_init
+.dinit            0x0029d8         0xec
+ .dinit           0x0029d8         0xec data_init
 
-.text             0x002a28        0x298
- .text            0x002a28         0xb8 build/default/production/mcc_generated_files/tmr1.o
-                  0x002a28                  _TMR1_Initialize
-                  0x002a4c                  _TMR1_Period16BitSet
-                  0x002a5e                  _TMR1_Period16BitGet
-                  0x002a66                  _TMR1_Counter16BitSet
-                  0x002a78                  _TMR1_Counter16BitGet
-                  0x002a80                  _TMR1_CallBack
-                  0x002a86                  _TMR1_SetInterruptHandler
-                  0x002a96                  _TMR1_Start
-                  0x002aa6                  _TMR1_Stop
-                  0x002ab0                  _TMR1_GetElapsedThenClear
-                  0x002ac8                  _TMR1_SoftwareCounterGet
-                  0x002ad4                  _TMR1_SoftwareCounterClear
- .text            0x002ae0         0xa8 build/default/production/mcc_generated_files/pin_manager.o
-                  0x002ae0                  _PIN_MANAGER_Initialize
- .text            0x002b88         0x80 build/default/production/delay.o
-                  0x002b88                  _DelayMs
-                  0x002bc2                  _Delay10us
-                  0x002bf0                  ___delay_us
-                  0x002bfc                  ___delay_ms
- .text            0x002c08         0x42 build/default/production/mcc_generated_files/interrupt_manager.o
-                  0x002c08                  _INTERRUPT_Initialize
- .text            0x002c4a         0x36 build/default/production/mcc_generated_files/clock.o
-                  0x002c4a                  _CLOCK_Initialize
- .text            0x002c80         0x18 build/default/production/mcc_generated_files/traps.o
-                  0x002c80                  _TRAPS_halt_on_error
- .text            0x002c98         0x14 build/default/production/mcc_generated_files/system.o
-                  0x002c98                  _SYSTEM_Initialize
- .text            0x002cac         0x14 build/default/production/main.o
-                  0x002cac                  _main
+.text             0x002ac4        0x29a
+ .text            0x002ac4         0xb8 build/default/production/mcc_generated_files/tmr1.o
+                  0x002ac4                  _TMR1_Initialize
+                  0x002ae8                  _TMR1_Period16BitSet
+                  0x002afa                  _TMR1_Period16BitGet
+                  0x002b02                  _TMR1_Counter16BitSet
+                  0x002b14                  _TMR1_Counter16BitGet
+                  0x002b1c                  _TMR1_CallBack
+                  0x002b22                  _TMR1_SetInterruptHandler
+                  0x002b32                  _TMR1_Start
+                  0x002b42                  _TMR1_Stop
+                  0x002b4c                  _TMR1_GetElapsedThenClear
+                  0x002b64                  _TMR1_SoftwareCounterGet
+                  0x002b70                  _TMR1_SoftwareCounterClear
+ .text            0x002b7c         0xa8 build/default/production/mcc_generated_files/pin_manager.o
+                  0x002b7c                  _PIN_MANAGER_Initialize
+ .text            0x002c24         0x80 build/default/production/delay.o
+                  0x002c24                  _DelayMs
+                  0x002c5e                  _Delay10us
+                  0x002c8c                  ___delay_us
+                  0x002c98                  ___delay_ms
+ .text            0x002ca4         0x42 build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x002ca4                  _INTERRUPT_Initialize
+ .text            0x002ce6         0x36 build/default/production/mcc_generated_files/clock.o
+                  0x002ce6                  _CLOCK_Initialize
+ .text            0x002d1c         0x18 build/default/production/mcc_generated_files/traps.o
+                  0x002d1c                  _TRAPS_halt_on_error
+ .text            0x002d34         0x16 build/default/production/main.o
+                  0x002d34                  _main
+ .text            0x002d4a         0x14 build/default/production/mcc_generated_files/system.o
+                  0x002d4a                  _SYSTEM_Initialize

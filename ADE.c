@@ -97,452 +97,519 @@
 
 static void ADE_Write(uint8_t ADE_Select, int32_t value, uint8_t address, uint8_t length);
 static int32_t ADE_Read(uint8_t ADE_Select, uint8_t address, uint8_t length);
+static void ADE_ReadCurrent(uint8_t SelectADE);
+static void ADE_ReadVoltage(uint8_t SelectADE);
 static int32_t Make32(uint8_t data);
-static int32_t Make322(uint8_t data,uint8_t data1);
-static int32_t Make323(uint8_t data,uint8_t data1,uint8_t data2);
+static int32_t Make322(uint8_t data, uint8_t data1);
+static int32_t Make323(uint8_t data, uint8_t data1, uint8_t data2);
 static int8_t make8(uint32_t value, uint8_t c);
-
 
 void Init_ADE_Run(void) {
     uint8_t i = 0;
-    ADE_Write(0,0x05, Sagcyc,1);
-    ADE_Write(0,0x30,Saglvl,1);
-    ADE_Write(0,0x1C0,Mask,3);
-    ADE_Write(0,0x00,Opmode,1);
-    ADE_Write(0,0x40,Lcycmode,1);
-    ADE_Write(0,0x9C,Compmode,1); 
-    ADE_Write(0,0x00, Mmode,1);
+    ADE_Write(0, 0x05, Sagcyc, 1);
+    ADE_Write(0, 0x30, Saglvl, 1);
+    ADE_Write(0, 0x1C0, Mask, 3);
+    ADE_Write(0, 0x00, Opmode, 1);
+    ADE_Write(0, 0x40, Lcycmode, 1);
+    ADE_Write(0, 0x9C, Compmode, 1);
+    ADE_Write(0, 0x00, Mmode, 1);
 
-    ADE_Write(0,-8,Varmsos,2);
-    ADE_Write(0,-44,Vbrmsos,2);
-    ADE_Write(0,-268,Vbrmsos,2);
-    ADE_Write(0,25,Iarmsos,2);
-    ADE_Write(0,25,Ibrmsos,2);
-    ADE_Write(0,25,Icrmsos,2);
-    ADE_Write(0,4,Wagain,2);
-    ADE_Write(0,4,Wbgain,2);
-    ADE_Write(0,4,Wcgain,2);
-    ADE_Write(0,4,VAagain,2);
-    ADE_Write(0,4,VAbgain,2);
-    ADE_Write(0,4,VAcgain,2);
-    ADE_Write(0,0,VARagain,2);
-    ADE_Write(0,0,VARbgain,2);
-    ADE_Write(0,0,VARcgain,2);
-    ADE_Write(0,-10,Aphcal,2);
-    ADE_Write(0,-10,Bphcal,2);
-    ADE_Write(0,-10,Cphcal,2);
-    ADE_Write(0,82,Waos,2);
-    ADE_Write(0,82,Wbos,2);
-    ADE_Write(0,82,Wcos,2);
-    ADE_Write(0,-1590,VARaos,2);
-    ADE_Write(0,-1590,VARbos,2);
-    ADE_Write(0,-1590,VARcos,2);
-    
+    ADE_Write(0, -8, Varmsos, 2);
+    ADE_Write(0, -44, Vbrmsos, 2);
+    ADE_Write(0, -268, Vbrmsos, 2);
+    ADE_Write(0, 25, Iarmsos, 2);
+    ADE_Write(0, 25, Ibrmsos, 2);
+    ADE_Write(0, 25, Icrmsos, 2);
+    ADE_Write(0, 4, Wagain, 2);
+    ADE_Write(0, 4, Wbgain, 2);
+    ADE_Write(0, 4, Wcgain, 2);
+    ADE_Write(0, 4, VAagain, 2);
+    ADE_Write(0, 4, VAbgain, 2);
+    ADE_Write(0, 4, VAcgain, 2);
+    ADE_Write(0, 0, VARagain, 2);
+    ADE_Write(0, 0, VARbgain, 2);
+    ADE_Write(0, 0, VARcgain, 2);
+    ADE_Write(0, -10, Aphcal, 2);
+    ADE_Write(0, -10, Bphcal, 2);
+    ADE_Write(0, -10, Cphcal, 2);
+    ADE_Write(0, 82, Waos, 2);
+    ADE_Write(0, 82, Wbos, 2);
+    ADE_Write(0, 82, Wcos, 2);
+    ADE_Write(0, -1590, VARaos, 2);
+    ADE_Write(0, -1590, VARbos, 2);
+    ADE_Write(0, -1590, VARcos, 2);
+
     for (i = 1; i < MAX_ADE; i++) {
-      __delay_ms(100);
-      ADE_Write(i,0x05, Sagcyc,1);
-      ADE_Write(i,0x30,Saglvl,1);
-      ADE_Write(i,0x1C0,Mask,3);
-      ADE_Write(i,0x00,Opmode,1);
-      ADE_Write(i,0x40,Lcycmode,1);
-      ADE_Write(i,0x9C,Compmode,1); 
-      ADE_Write(i,0x00, Mmode,1);
-      
-      ADE_Write(i,65521,Varmsos,2);
-      ADE_Write(i,65521,Vbrmsos,2);
-      ADE_Write(i,65521,Vbrmsos,2);
-      ADE_Write(i,249,Iarmsos,2);
-      ADE_Write(i,249,Ibrmsos,2);
-      ADE_Write(i,249,Icrmsos,2);
-      ADE_Write(i,39,Wagain,2);
-      ADE_Write(i,39,Wbgain,2);
-      ADE_Write(i,39,Wcgain,2);
-      ADE_Write(i,38,VAagain,2);
-      ADE_Write(i,38,VAbgain,2);
-      ADE_Write(i,38,VAcgain,2);
-      ADE_Write(i,39,VARagain,2);
-      ADE_Write(i,39,VARbgain,2);
-      ADE_Write(i,39,VARcgain,2);
-      ADE_Write(i,157,Waos,2);
-      ADE_Write(i,157,Wbos,2);
-      ADE_Write(i,157,Wcos,2);
-      ADE_Write(i,473,VARaos,2);
-      ADE_Write(i,473,VARbos,2);
-      ADE_Write(i,473,VARcos,2);
+        __delay_ms(100);
+        ADE_Write(i, 0x05, Sagcyc, 1);
+        ADE_Write(i, 0x30, Saglvl, 1);
+        ADE_Write(i, 0x1C0, Mask, 3);
+        ADE_Write(i, 0x00, Opmode, 1);
+
+        //      ADE_Write(i, 90, Gain, 1);
+
+        ADE_Write(i, 0x40, Lcycmode, 1);
+        ADE_Write(i, 0x9C, Compmode, 1);
+        ADE_Write(i, 0x00, Mmode, 1);
+
+        ADE_Write(i, -0, Varmsos, 2);
+        ADE_Write(i, -0, Vbrmsos, 2);
+        ADE_Write(i, -0, Vbrmsos, 2);
+        ADE_Write(i, -20, Iarmsos, 2);
+        ADE_Write(i, -20, Ibrmsos, 2);
+        ADE_Write(i, -20, Icrmsos, 2);
+        ADE_Write(i, 39, Wagain, 2);
+        ADE_Write(i, 39, Wbgain, 2);
+        ADE_Write(i, 39, Wcgain, 2);
+        ADE_Write(i, 38, VAagain, 2);
+        ADE_Write(i, 38, VAbgain, 2);
+        ADE_Write(i, 38, VAcgain, 2);
+        ADE_Write(i, 39, VARagain, 2);
+        ADE_Write(i, 39, VARbgain, 2);
+        ADE_Write(i, 39, VARcgain, 2);
+        ADE_Write(i, 157, Waos, 2);
+        ADE_Write(i, 157, Wbos, 2);
+        ADE_Write(i, 157, Wcos, 2);
+        ADE_Write(i, 473, VARaos, 2);
+        ADE_Write(i, 473, VARbos, 2);
+        ADE_Write(i, 473, VARcos, 2);
     }
 }
 
-static int32_t Make32(uint8_t data){
-    int32_t result=0;
-    result=data;
+static int32_t Make32(uint8_t data) {
+    int32_t result = 0;
+    result = data;
     return (result);
 }
 
-static int32_t Make322(uint8_t data,uint8_t data1){
-    int32_t result=0;
-    result=data;
-    result = result<<8;
-    result = result| data1;
+static int32_t Make322(uint8_t data, uint8_t data1) {
+    int32_t result = 0;
+    result = data;
+    result = result << 8;
+    result = result | data1;
     return (result);
 }
 
-static int32_t Make323(uint8_t data,uint8_t data1,uint8_t data2){
-    int32_t result=0;   
-    result=data;
-    result = result<<8 | data1;
-    result = result<<8 | data2;
+static int32_t Make323(uint8_t data, uint8_t data1, uint8_t data2) {
+    int32_t result = 0;
+    result = data;
+    result = result << 8 | data1;
+    result = result << 8 | data2;
     return (result);
 }
 
-static int8_t make8(uint32_t value, uint8_t c){
-    int8_t result=0;
-    c=c*8;
+static int8_t make8(uint32_t value, uint8_t c) {
+    int8_t result = 0;
+    c = c * 8;
     result = ((value >> c) & 0xFF);
     return result;
 }
 //-------------------------------------------------------------------------------------------------------//
-static void ADE_Write(uint8_t ADE_Select, int32_t value, uint8_t address, uint8_t length){
-    uint8_t response=0;
-    switch(ADE_Select){
-        case 1:{
-            ADE_CS1=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 2:{
-            ADE_CS2=0;
-            ADE_CS1=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
 
-            break;
-        }
-        case 3:{
-            ADE_CS3=0;
-            ADE_CS2=1;
-            ADE_CS1=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-
-            break;
-        }
-        case 4:{
-            ADE_CS4=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS1=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }   
-        case 5:{
-            ADE_CS5=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS1=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 6:{
-            ADE_CS6=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS1=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 7:{
-            ADE_CS7=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS1=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 8:{
-            ADE_CS8=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS1=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 9:{
-            ADE_CS9=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS1=1;
-            break;
-        }   
-    } 
-    address=address|0x80;
-    response = SPI2_Exchange8bit(address);
-    Delay10us(20);
-    
-    switch(length){
-        case 1: {
-            response = SPI2_Exchange8bit(make8(value,0)); // truy?n ?i byte 0 trong value//
-            break;
-        }
-        case 2: {
-            response = SPI2_Exchange8bit(make8(value,1)); // truy?n ?i byte 1 trong value//
-            Delay10us(20);
-            response = SPI2_Exchange8bit(make8(value,0));
-            break;
-        }
-        case 3: {
-            response = SPI2_Exchange8bit(make8(value,2));
-            Delay10us(20);
-            response = SPI2_Exchange8bit(make8(value,1));
-            Delay10us(20);
-            response = SPI2_Exchange8bit(make8(value,0));
-            break;
-        }
-    }
-    ADE_CS1=1; ADE_CS2=1; ADE_CS3=1; ADE_CS4=1; ADE_CS5=1; ADE_CS6=1; ADE_CS7=1; ADE_CS8=1; ADE_CS9=1;
-    DelayMs(1);
-}
-
-static int32_t ADE_Read(uint8_t ADE_Select, uint8_t address, uint8_t length){
-    int32_t result=0;
-    uint8_t temp,result_0=0,result_1=0,result_2=0;
-    switch(ADE_Select){
-        case 1:{
-            ADE_CS1=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 2:{
-            ADE_CS2=0;
-            ADE_CS1=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-
-            break;
-        }
-        case 3:{
-            ADE_CS3=0;
-            ADE_CS2=1;
-            ADE_CS1=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-
-            break;
-        }
-        case 4:{
-            ADE_CS4=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS1=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }   
-        case 5:{
-            ADE_CS5=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS1=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 6:{
-            ADE_CS6=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS1=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 7:{
-            ADE_CS7=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS1=1;
-            ADE_CS8=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 8:{
-            ADE_CS8=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS1=1;
-            ADE_CS9=1;
-            break;
-        }
-        case 9:{
-            ADE_CS9=0;
-            ADE_CS2=1;
-            ADE_CS3=1;
-            ADE_CS4=1;
-            ADE_CS5=1;
-            ADE_CS6=1;
-            ADE_CS7=1;
-            ADE_CS8=1;
-            ADE_CS1=1;
-            break;
-        }             
-    }
-    address=address&0x7F;
-    temp = SPI2_Exchange8bit(address);
-    Delay10us(5);
-    
-    switch (length){
-        case 1:{
-            result_0 = SPI2_Exchange8bit(0);
-            result = Make32(result_0);
-            break;
-        }   
-        case 2:{
-            result_0 = SPI2_Exchange8bit(0);
-            Delay10us(5);
-            result_1=SPI2_Exchange8bit(0);
-            result = Make322(result_0,result_1);
-            break;
-        }  
-        case 3:{
-            result_0 = SPI2_Exchange8bit(0);
-            Delay10us(5);
-            result_1=SPI2_Exchange8bit(0);
-            Delay10us(5);
-            result_2=SPI2_Exchange8bit(0);
-            result = Make323(result_0,result_1,result_2);
-            break;
-        }         
-    }
-    ADE_CS1=1; ADE_CS2=1; ADE_CS3=1; ADE_CS4=1; ADE_CS5=1; ADE_CS6=1; ADE_CS7=1; ADE_CS8=1; ADE_CS9=1;
-    Delay10us(5);
-    return result;
-}
-
-
-
-void ADE_test(uint8_t Num)
-{
-    uint8_t index;
-    int32_t CurrValue[3], VoltValue[3], PowerValue[3], ReActiveValue[3];
-    uint64_t ValueCos[3];
-    switch (Num)
-    {
+static void ADE_Write(uint8_t ADE_Select, int32_t value, uint8_t address, uint8_t length) {
+    uint8_t response = 0;
+    switch (ADE_Select) {
         case 1:
         {
-            for (index =0; index < 3; index++ )
-            {
-                CurrValue[index] = ADE_Read(6, Ia + index, 3);
-                printf("Gia tri dong dien pha %d la: %li \n\r", (index + 1), CurrValue[index]);
-            }
+            ADE_CS1 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
             break;
         }
         case 2:
         {
-            for ( index =0; index < 3; index++ )
-            {
-                VoltValue[index] = ADE_Read(6, Va + index, 3);
-                printf("Gia tri dien ap pha %d la: %li \n\r", (index + 1), VoltValue[index]);
-            }
+            ADE_CS2 = 0;
+            ADE_CS1 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+
+            break;
+        }
+        case 3:
+        {
+            ADE_CS3 = 0;
+            ADE_CS2 = 1;
+            ADE_CS1 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+
+            break;
+        }
+        case 4:
+        {
+            ADE_CS4 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS1 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 5:
+        {
+            ADE_CS5 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS1 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 6:
+        {
+            ADE_CS6 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS1 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 7:
+        {
+            ADE_CS7 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS1 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 8:
+        {
+            ADE_CS8 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS1 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 9:
+        {
+            ADE_CS9 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS1 = 1;
+            break;
+        }
+    }
+    address = address | 0x80;
+    response = SPI2_Exchange8bit(address);
+    Delay10us(20);
+
+    switch (length) {
+        case 1:
+        {
+            response = SPI2_Exchange8bit(make8(value, 0)); // truy?n ?i byte 0 trong value//
+            break;
+        }
+        case 2:
+        {
+            response = SPI2_Exchange8bit(make8(value, 1)); // truy?n ?i byte 1 trong value//
+            Delay10us(20);
+            response = SPI2_Exchange8bit(make8(value, 0));
+            break;
+        }
+        case 3:
+        {
+            response = SPI2_Exchange8bit(make8(value, 2));
+            Delay10us(20);
+            response = SPI2_Exchange8bit(make8(value, 1));
+            Delay10us(20);
+            response = SPI2_Exchange8bit(make8(value, 0));
+            break;
+        }
+    }
+    ADE_CS1 = 1;
+    ADE_CS2 = 1;
+    ADE_CS3 = 1;
+    ADE_CS4 = 1;
+    ADE_CS5 = 1;
+    ADE_CS6 = 1;
+    ADE_CS7 = 1;
+    ADE_CS8 = 1;
+    ADE_CS9 = 1;
+    DelayMs(1);
+}
+
+static int32_t ADE_Read(uint8_t ADE_Select, uint8_t address, uint8_t length) {
+    int32_t result = 0;
+    uint8_t temp, result_0 = 0, result_1 = 0, result_2 = 0;
+    switch (ADE_Select) {
+        case 1:
+        {
+            ADE_CS1 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 2:
+        {
+            ADE_CS2 = 0;
+            ADE_CS1 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+
+            break;
+        }
+        case 3:
+        {
+            ADE_CS3 = 0;
+            ADE_CS2 = 1;
+            ADE_CS1 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+
+            break;
+        }
+        case 4:
+        {
+            ADE_CS4 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS1 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 5:
+        {
+            ADE_CS5 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS1 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 6:
+        {
+            ADE_CS6 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS1 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 7:
+        {
+            ADE_CS7 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS1 = 1;
+            ADE_CS8 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 8:
+        {
+            ADE_CS8 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS1 = 1;
+            ADE_CS9 = 1;
+            break;
+        }
+        case 9:
+        {
+            ADE_CS9 = 0;
+            ADE_CS2 = 1;
+            ADE_CS3 = 1;
+            ADE_CS4 = 1;
+            ADE_CS5 = 1;
+            ADE_CS6 = 1;
+            ADE_CS7 = 1;
+            ADE_CS8 = 1;
+            ADE_CS1 = 1;
+            break;
+        }
+    }
+    address = address & 0x7F;
+    temp = SPI2_Exchange8bit(address);
+    Delay10us(5);
+
+    switch (length) {
+        case 1:
+        {
+            result_0 = SPI2_Exchange8bit(0);
+            result = Make32(result_0);
+            break;
+        }
+        case 2:
+        {
+            result_0 = SPI2_Exchange8bit(0);
+            Delay10us(5);
+            result_1 = SPI2_Exchange8bit(0);
+            result = Make322(result_0, result_1);
+            break;
+        }
+        case 3:
+        {
+            result_0 = SPI2_Exchange8bit(0);
+            Delay10us(5);
+            result_1 = SPI2_Exchange8bit(0);
+            Delay10us(5);
+            result_2 = SPI2_Exchange8bit(0);
+            result = Make323(result_0, result_1, result_2);
+            break;
+        }
+    }
+    ADE_CS1 = 1;
+    ADE_CS2 = 1;
+    ADE_CS3 = 1;
+    ADE_CS4 = 1;
+    ADE_CS5 = 1;
+    ADE_CS6 = 1;
+    ADE_CS7 = 1;
+    ADE_CS8 = 1;
+    ADE_CS9 = 1;
+    Delay10us(5);
+    return result;
+}
+
+static void ADE_ReadCurrent(uint8_t SelectADE) {
+    uint8_t index;
+    int32_t CurrValue[3];
+    int16_t outVal;
+    int8_t value1, value2, value3;
+    for (index = 0; index < 3; index++) {
+        CurrValue[index] = ADE_Read(SelectADE, Ia + index, 3);
+        value1 = make8(CurrValue[index], 0);
+        value2 = make8(CurrValue[index], 1);
+        value3 = make8(CurrValue[index], 2);
+        outVal = (int16_t) CurrValue[index];
+        printf("Gia tri dong dien pha %d la: 0x%x%x%x | %d \n\r", (index + 1), value3, value2, value1, outVal);
+    }
+    printf("\n\r");
+}
+
+static void ADE_ReadVoltage(uint8_t SelectADE) {
+    uint8_t index;
+    int32_t VoltValue[3];
+    int16_t outVal;
+    int8_t value1, value2, value3;
+    for (index = 0; index < 3; index++) {
+        VoltValue[index] = ADE_Read(SelectADE, Ia + index, 3);
+        value1 = make8(VoltValue[index], 0);
+        value2 = make8(VoltValue[index], 1);
+        value3 = make8(VoltValue[index], 2);
+        outVal = (int16_t) VoltValue[index];
+        printf("Gia tri dong dien pha %d la: 0x%x%x%x | %d \n\r", (index + 1), value3, value2, value1, outVal);
+    }
+    printf("\n\r");
+}
+
+void ADE_test(uint8_t Num, uint8_t SelectADE) {
+    uint8_t index;
+    int32_t PowerValue[3], ReActiveValue[3];
+    uint64_t ValueCos[3];
+
+    //    int32_t test;
+    //    test = ADE_Read(SelectADE, Mask, 3);
+    //    printf("%li \n\r", test);
+
+    switch (Num) {
+        case 1:
+        {
+            ADE_ReadCurrent(SelectADE);
+            break;
+        }
+        case 2:
+        {
+            ADE_ReadVoltage(SelectADE);
             break;
         }
         case 3:
         {
             int16_t ValueTest;
-            for ( index =0; index < 3; index++ )
-            {
-                ValueTest = (int16_t)ADE_Read(6, Awatt + index, 2);
+            for (index = 0; index < 3; index++) {
+                ValueTest = (int16_t) ADE_Read(SelectADE, Awatt + index, 2);
                 PowerValue[index] = (int32_t) ValueTest;
                 printf("Gia tri cong suat pha %d la: %li \n\r", (index + 1), PowerValue[index]);
             }
-            
-            for ( index =0; index < 3; index++ )
-            {
-                ValueTest = (int16_t)ADE_Read(6, Avar + index, 2);
+
+            for (index = 0; index < 3; index++) {
+                ValueTest = (int16_t) ADE_Read(SelectADE, Avar + index, 2);
                 ReActiveValue[index] = (int32_t) ValueTest;
                 printf("Gia tri cong suat phan khang pha %d la: %li \n\r", (index + 1), ReActiveValue[index]);
             }
-            
-            for ( index =0; index < 3; index++ )
-            {
-                ValueCos[index] = (uint64_t) sqrt(pow(PowerValue[index],2) + pow(ReActiveValue[index], 2));
+
+            for (index = 0; index < 3; index++) {
+                ValueCos[index] = (uint64_t) sqrt(pow(PowerValue[index], 2) + pow(ReActiveValue[index], 2));
                 printf("Gia tri Cos Phi pha %d la: %li \n\r", (index + 1), ValueCos[index]);
             }
-            
+
             break;
         }
-                
+
     }
 
 }

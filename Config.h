@@ -37,7 +37,7 @@
 #define MAX_ID            8
 #define MAX_485_USE       20
 #define MAX_TEMPER_USE    9
-#define MAX_ADE           6
+#define MAX_ADE           9
 
 #if MAX_ADE == 3
    #define MAX_DISPLAY_ALARM 14 
@@ -119,7 +119,7 @@ typedef enum
 }button_type;
 
 void Init_ADE_Run(void);
-void ADE_test(uint8_t Num);
+void ADE_test(uint8_t Num, uint8_t SelectADE);
 //extern void Init_Buttons(void);
 //extern void Test(void);
 // Comment a function and leverage automatic documentation with slash star star

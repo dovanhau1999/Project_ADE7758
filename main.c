@@ -61,7 +61,7 @@ int main(void)
     while (1)
     {
         // Add your application code
-        ADE_test(1);
+        ADE_test(2, 6);
         DelayMs(500);
     }
 
